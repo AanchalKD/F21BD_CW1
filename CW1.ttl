@@ -1,0 +1,372 @@
+@prefix : <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <https://www.w3.org/TR/owl-time/#time> .
+@base <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1> .
+
+<http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1> rdf:type owl:Ontology ;
+                                                                owl:versionIRI <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1/v1_0_0> ;
+                                                                owl:Author "Aanchal K. Deepak"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Author
+owl:Author rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2006/time#Duration
+<http://www.w3.org/2006/time#Duration> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDOP_0001
+:F20BDOP_0001 rdf:type owl:ObjectProperty ;
+              owl:inverseOf :F20BDOP_0002 ;
+              rdfs:domain :F20BDC_0003 ;
+              rdfs:range :F20BDC_0002 ;
+              rdfs:label "cityOf"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDOP_0002
+:F20BDOP_0002 rdf:type owl:ObjectProperty ;
+              rdfs:domain :F20BDC_0002 ;
+              rdfs:range :F20BDC_0003 ;
+              rdfs:label "hasCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDOP_0005
+:F20BDOP_0005 rdf:type owl:ObjectProperty ;
+              owl:inverseOf :capitalOf ;
+              rdfs:domain :F20BDC_0002 ;
+              rdfs:range :F20BDC_0004 ;
+              rdfs:label "hasCapital"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDOP_0007
+:F20BDOP_0007 rdf:type owl:ObjectProperty ;
+              rdfs:domain :F20BDC_0009 ;
+              rdfs:range :F20BDC_0003 ;
+              rdfs:label "toCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#capitalOf
+:capitalOf rdf:type owl:ObjectProperty ;
+           rdfs:domain :F20BDC_0004 ;
+           rdfs:range :F20BDC_0002 ;
+           rdfs:label "capitalOf"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#hasDuration
+:hasDuration rdf:type owl:ObjectProperty ;
+             rdfs:domain :F20BDC_0009 ;
+             rdfs:range :F20BDC_0008 .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#hasUnit
+:hasUnit rdf:type owl:ObjectProperty ;
+         rdfs:domain :F20BDC_0009 ;
+         rdfs:range :F20BDC_0007 .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0001
+:F20BDC_0001 rdf:type owl:Class ;
+             rdfs:label "Location"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0002
+:F20BDC_0002 rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F20BDOP_0002 ;
+                                                          owl:someValuesFrom :F20BDC_0003
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F20BDOP_0005 ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass :F20BDC_0004
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :F20BDC_0001 ;
+             rdfs:label "Country"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0003
+:F20BDC_0003 rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :F20BDOP_0001 ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :F20BDC_0002
+                                 ] ;
+             rdfs:subClassOf :F20BDC_0001 ;
+             rdfs:label "City"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0004
+:F20BDC_0004 rdf:type owl:Class ;
+             rdfs:subClassOf :F20BDC_0003 ;
+             rdfs:label "CapitalCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0005
+:F20BDC_0005 rdf:type owl:Class ;
+             rdfs:subClassOf :F20BDC_0003 ;
+             rdfs:label "Non-CapitalCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0006
+:F20BDC_0006 rdf:type owl:Class ;
+             rdfs:label "Time"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0007
+:F20BDC_0007 rdf:type owl:Class ;
+             rdfs:subClassOf :F20BDC_0006 ;
+             rdfs:label "Unit"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0008
+:F20BDC_0008 rdf:type owl:Class ;
+             rdfs:subClassOf :F20BDC_0006 ;
+             rdfs:label "Duration"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDC_0009
+:F20BDC_0009 rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasDuration ;
+                                                          owl:someValuesFrom :F20BDC_0008
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F20BDOP_0007 ;
+                                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass :F20BDC_0003
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasUnit ;
+                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass :F20BDC_0007
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "Tour"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0001
+:F20BDI_0001 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0007 ;
+             rdfs:label "Day"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0002
+:F20BDI_0002 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0007 ;
+             rdfs:label "Week"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0003
+:F20BDI_0003 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0007 ;
+             rdfs:label "Month"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0005
+:F20BDI_0005 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0009 ;
+             :F20BDOP_0007 <https://www.wikidata.org/wiki/Q2807#Madrid> ,
+                           <https://www.wikidata.org/wiki/Q8717#Seville> ,
+                           <https://www.wikidata.org/wiki/Q8810#Granada> ;
+             :hasDuration :F20BDI_0008 ;
+             :hasUnit :F20BDI_0001 ;
+             rdfs:label "Tour of Spain"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0006
+:F20BDI_0006 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0009 ;
+             :F20BDOP_0007 <https://www.wikidata.org/wiki/Q1479#Bordeaux> ,
+                           <https://www.wikidata.org/wiki/Q621#Versailles> ,
+                           <https://www.wikidata.org/wiki/Q90#Paris> ;
+             :hasDuration :F20BDI_0011 ;
+             :hasUnit :F20BDI_0001 ;
+             rdfs:label "Tour of France"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0007
+:F20BDI_0007 rdf:type owl:NamedIndividual ;
+             rdfs:label "1"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0008
+:F20BDI_0008 rdf:type owl:NamedIndividual ;
+             rdfs:label "2"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0009
+:F20BDI_0009 rdf:type owl:NamedIndividual ,
+                      :F20BDC_0009 ;
+             :F20BDOP_0007 <https://www.wikidata.org/wiki/Q1519#Abu_Dhabi> ,
+                           <https://www.wikidata.org/wiki/Q2126436#Ras_Al-Khaima> ,
+                           <https://www.wikidata.org/wiki/Q289693#Sharjah> ,
+                           <https://www.wikidata.org/wiki/Q4045#Fujairah> ,
+                           <https://www.wikidata.org/wiki/Q612#Dubai> ;
+             :hasDuration :F20BDI_0012 ;
+             :hasUnit :F20BDI_0001 ;
+             rdfs:label "Tour of UAE"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0010
+:F20BDI_0010 rdf:type owl:NamedIndividual ;
+             rdfs:label "3"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0011
+:F20BDI_0011 rdf:type owl:NamedIndividual ;
+             rdfs:label "4"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0012
+:F20BDI_0012 rdf:type owl:NamedIndividual ;
+             rdfs:label "5"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0013
+:F20BDI_0013 rdf:type owl:NamedIndividual ;
+             rdfs:label "6"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0014
+:F20BDI_0014 rdf:type owl:NamedIndividual ;
+             rdfs:label "7"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0015
+:F20BDI_0015 rdf:type owl:NamedIndividual ;
+             rdfs:label "8"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0016
+:F20BDI_0016 rdf:type owl:NamedIndividual ;
+             rdfs:label "9"@en .
+
+
+###  https://www.wikidata.org/wiki/Q142#France
+<https://www.wikidata.org/wiki/Q142#France> rdf:type owl:NamedIndividual ,
+                                                     :F20BDC_0002 ;
+                                            :F20BDOP_0002 <https://www.wikidata.org/wiki/Q90#Paris> ;
+                                            rdfs:label "France"@en .
+
+
+###  https://www.wikidata.org/wiki/Q1479#Bordeaux
+<https://www.wikidata.org/wiki/Q1479#Bordeaux> rdf:type owl:NamedIndividual ,
+                                                        :F20BDC_0005 ;
+                                               :F20BDOP_0001 <https://www.wikidata.org/wiki/Q142#France> ;
+                                               rdfs:label "Bordeaux"@en .
+
+
+###  https://www.wikidata.org/wiki/Q1519#Abu_Dhabi
+<https://www.wikidata.org/wiki/Q1519#Abu_Dhabi> rdf:type owl:NamedIndividual ,
+                                                         :F20BDC_0004 ;
+                                                :F20BDOP_0001 <https://www.wikidata.org/wiki/Q878#UAE> ;
+                                                rdfs:label "Abu Dhabi"@en .
+
+
+###  https://www.wikidata.org/wiki/Q2126436#Ras_Al-Khaima
+<https://www.wikidata.org/wiki/Q2126436#Ras_Al-Khaima> rdf:type owl:NamedIndividual ,
+                                                                :F20BDC_0005 ;
+                                                       :F20BDOP_0001 <https://www.wikidata.org/wiki/Q878#UAE> ;
+                                                       rdfs:label "Ras Al-Khaima"@en .
+
+
+###  https://www.wikidata.org/wiki/Q2807#Madrid
+<https://www.wikidata.org/wiki/Q2807#Madrid> rdf:type owl:NamedIndividual ,
+                                                      :F20BDC_0004 ;
+                                             :F20BDOP_0001 <https://www.wikidata.org/wiki/Q29#Spain> ;
+                                             :capitalOf <https://www.wikidata.org/wiki/Q29#Spain> ;
+                                             rdfs:label "Madrid"@en .
+
+
+###  https://www.wikidata.org/wiki/Q289693#Sharjah
+<https://www.wikidata.org/wiki/Q289693#Sharjah> rdf:type owl:NamedIndividual ,
+                                                         :F20BDC_0005 ;
+                                                :F20BDOP_0001 <https://www.wikidata.org/wiki/Q878#UAE> ;
+                                                rdfs:label "Sharjah"@en .
+
+
+###  https://www.wikidata.org/wiki/Q29#Spain
+<https://www.wikidata.org/wiki/Q29#Spain> rdf:type owl:NamedIndividual ,
+                                                   :F20BDC_0002 ;
+                                          :F20BDOP_0002 <https://www.wikidata.org/wiki/Q2807#Madrid> ,
+                                                        <https://www.wikidata.org/wiki/Q8717#Seville> ,
+                                                        <https://www.wikidata.org/wiki/Q8810#Granada> ;
+                                          :F20BDOP_0005 <https://www.wikidata.org/wiki/Q2807#Madrid> ;
+                                          rdfs:label "Spain"@en .
+
+
+###  https://www.wikidata.org/wiki/Q4045#Fujairah
+<https://www.wikidata.org/wiki/Q4045#Fujairah> rdf:type owl:NamedIndividual ,
+                                                        :F20BDC_0005 ;
+                                               :F20BDOP_0001 <https://www.wikidata.org/wiki/Q878#UAE> ;
+                                               rdfs:label "Fujairah"@en .
+
+
+###  https://www.wikidata.org/wiki/Q612#Dubai
+<https://www.wikidata.org/wiki/Q612#Dubai> rdf:type owl:NamedIndividual ,
+                                                    :F20BDC_0005 ;
+                                           :F20BDOP_0001 <https://www.wikidata.org/wiki/Q878#UAE> ;
+                                           rdfs:label "Dubai"@en .
+
+
+###  https://www.wikidata.org/wiki/Q621#Versailles
+<https://www.wikidata.org/wiki/Q621#Versailles> rdf:type owl:NamedIndividual ,
+                                                         :F20BDC_0005 ;
+                                                :F20BDOP_0001 <https://www.wikidata.org/wiki/Q142#France> ;
+                                                rdfs:label "Versailles"@en .
+
+
+###  https://www.wikidata.org/wiki/Q8717#Seville
+<https://www.wikidata.org/wiki/Q8717#Seville> rdf:type owl:NamedIndividual ,
+                                                       :F20BDC_0005 ;
+                                              :F20BDOP_0001 <https://www.wikidata.org/wiki/Q29#Spain> ;
+                                              rdfs:label "Seville"@en .
+
+
+###  https://www.wikidata.org/wiki/Q878#UAE
+<https://www.wikidata.org/wiki/Q878#UAE> rdf:type owl:NamedIndividual ,
+                                                  :F20BDC_0002 ;
+                                         :F20BDOP_0005 <https://www.wikidata.org/wiki/Q1519#Abu_Dhabi> ;
+                                         rdfs:label "UAE"@en .
+
+
+###  https://www.wikidata.org/wiki/Q8810#Granada
+<https://www.wikidata.org/wiki/Q8810#Granada> rdf:type owl:NamedIndividual ,
+                                                       :F20BDC_0005 ;
+                                              :F20BDOP_0001 <https://www.wikidata.org/wiki/Q29#Spain> ;
+                                              rdfs:label "Granada"@en .
+
+
+###  https://www.wikidata.org/wiki/Q90#Paris
+<https://www.wikidata.org/wiki/Q90#Paris> rdf:type owl:NamedIndividual ,
+                                                   :F20BDC_0004 ;
+                                          :capitalOf <https://www.wikidata.org/wiki/Q142#France> ;
+                                          rdfs:label "Paris"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
