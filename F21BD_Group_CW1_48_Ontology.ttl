@@ -1,0 +1,415 @@
+@prefix : <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@base <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1> .
+
+<http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1> rdf:type owl:Ontology ;
+                                                                owl:versionIRI <http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1/v1_0_0> ;
+                                                                <http://purl.org/dc/terms/creator> """Group CW1 48
+
+Aanchal K. Deepak
+Ruvini Nanayakkarage
+Kusalka Silva"""@en ;
+                                                                <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0> ;
+                                                                <http://purl.org/dc/terms/title> "Watt Tours Ontology for F21BD Coursework 1"@en ;
+                                                                owl:versionInfo 1.0 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#Author
+owl:Author rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2006/time#Duration
+time:Duration rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  htthttp://www.w3.org/2006/time#F21BDOP_0003
+<htthttp://www.w3.org/2006/time#F21BDOP_0003> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :F21BDC_0009 ;
+                                              rdfs:range time:F21BDC_0008 ;
+                                              rdfs:label "hasDuration"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0001
+:F21BDOP_0001 rdf:type owl:ObjectProperty ;
+              owl:inverseOf :F21BDOP_0002 ;
+              rdfs:domain :F21BDC_0003 ;
+              rdfs:range :F21BDC_0002 ;
+              rdfs:label "cityOf"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0002
+:F21BDOP_0002 rdf:type owl:ObjectProperty ;
+              rdfs:domain :F21BDC_0002 ;
+              rdfs:range :F21BDC_0003 ;
+              rdfs:label "hasCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0005
+:F21BDOP_0005 rdf:type owl:ObjectProperty ;
+              owl:inverseOf :F21BDOP_0006 ;
+              rdfs:domain :F21BDC_0002 ;
+              rdfs:range :F21BDC_0004 ;
+              rdfs:label "hasCapital"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0006
+:F21BDOP_0006 rdf:type owl:ObjectProperty ;
+              rdfs:domain :F21BDC_0004 ;
+              rdfs:range :F21BDC_0002 ;
+              rdfs:label "capitalOf"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0007
+:F21BDOP_0007 rdf:type owl:ObjectProperty ;
+              owl:inverseOf :F21BDOP_0008 ;
+              rdfs:domain :F21BDC_0009 ;
+              rdfs:range :F21BDC_0003 ;
+              rdfs:label "toCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDOP_0008
+:F21BDOP_0008 rdf:type owl:ObjectProperty ;
+              rdfs:domain :F21BDC_0003 ;
+              rdfs:range :F21BDC_0009 ;
+              <http://purl.org/dc/terms/description> "Represents the cities that are \"part of\" the Tour"@en ;
+              rdfs:label "partOf"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDOP_0004
+time:F21BDOP_0004 rdf:type owl:ObjectProperty ;
+                  rdfs:domain :F21BDC_0009 ;
+                  rdfs:range time:F21BDC_0007 ;
+                  rdfs:label "unitType"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0001
+:F21BDC_0001 rdf:type owl:Class ;
+             rdfs:label "Location"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0002
+:F21BDC_0002 rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F21BDOP_0002 ;
+                                                          owl:someValuesFrom :F21BDC_0003
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F21BDOP_0005 ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass :F21BDC_0004
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :F21BDC_0001 ;
+             rdfs:label "Country"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0003
+:F21BDC_0003 rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :F21BDOP_0001 ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :F21BDC_0002
+                                 ] ;
+             rdfs:subClassOf :F21BDC_0001 ;
+             rdfs:label "City"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0004
+:F21BDC_0004 rdf:type owl:Class ;
+             rdfs:subClassOf :F21BDC_0003 ;
+             rdfs:label "CapitalCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0005
+:F21BDC_0005 rdf:type owl:Class ;
+             rdfs:subClassOf :F21BDC_0003 ;
+             rdfs:label "Non-CapitalCity"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F21BDC_0009
+:F21BDC_0009 rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :F21BDOP_0007 ;
+                                                          owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass :F21BDC_0003
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <htthttp://www.w3.org/2006/time#F21BDOP_0003> ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass time:F21BDC_0008
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty time:F21BDOP_0004 ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onClass time:F21BDC_0007
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "Tour"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDC_0006
+time:F21BDC_0006 rdf:type owl:Class ;
+                 rdfs:label "Time"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDC_0007
+time:F21BDC_0007 rdf:type owl:Class ;
+                 rdfs:subClassOf time:F21BDC_0006 ;
+                 owl:disjointWith time:F21BDC_0008 ;
+                 rdfs:label "Unit"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDC_0008
+time:F21BDC_0008 rdf:type owl:Class ;
+                 rdfs:subClassOf time:F21BDC_0006 ;
+                 rdfs:label "Duration"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0005
+:F20BDI_0005 rdf:type owl:NamedIndividual ,
+                      :F21BDC_0009 ;
+             <htthttp://www.w3.org/2006/time#F21BDOP_0003> time:F21BDI_0012 ;
+             :F21BDOP_0007 <http://www.wikidata.org/entity/Q2807> ,
+                           <http://www.wikidata.org/entity/Q8717> ,
+                           <http://www.wikidata.org/entity/Q8810> ,
+                           <http://www.wikidata.org/entity/Q8826> ;
+             time:F21BDOP_0004 time:F21BDI_0001 ;
+             <http://purl.org/dc/terms/description> "Tour booked by Ruvini Nanayakkarage"@en ;
+             rdfs:label "Tour of Spain"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0006
+:F20BDI_0006 rdf:type owl:NamedIndividual ,
+                      :F21BDC_0009 ;
+             <htthttp://www.w3.org/2006/time#F21BDOP_0003> time:F21BDI_0010 ;
+             :F21BDOP_0007 <http://www.wikidata.org/entity/Q1479> ,
+                           <http://www.wikidata.org/entity/Q621> ,
+                           <http://www.wikidata.org/entity/Q90> ;
+             time:F21BDOP_0004 time:F21BDI_0001 ;
+             <http://purl.org/dc/terms/description> "Tour booked by Aanchal K. Deepak"@en ;
+             rdfs:label "Tour of France"@en .
+
+
+###  http://www.semanticweb.org/aanch/ontologies/2022/0/F21BD_CW1#F20BDI_0009
+:F20BDI_0009 rdf:type owl:NamedIndividual ,
+                      :F21BDC_0009 ;
+             <htthttp://www.w3.org/2006/time#F21BDOP_0003> time:F21BDI_0014 ;
+             :F21BDOP_0007 <http://www.wikidata.org/entity/Q1519> ,
+                           <http://www.wikidata.org/entity/Q2126436> ,
+                           <http://www.wikidata.org/entity/Q289693> ,
+                           <http://www.wikidata.org/entity/Q4045> ,
+                           <http://www.wikidata.org/entity/Q612> ;
+             time:F21BDOP_0004 time:F21BDI_0001 ;
+             <http://purl.org/dc/terms/description> "Tour booked by Kusalka Silva"@en ;
+             rdfs:label "Tour of UAE"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0001
+time:F21BDI_0001 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0007 ;
+                 rdfs:label "unitDay"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0002
+time:F21BDI_0002 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0007 ;
+                 rdfs:label "unitWeek"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0003
+time:F21BDI_0003 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0007 ;
+                 rdfs:label "unitMonth"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0010
+time:F21BDI_0010 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0008 ;
+                 rdfs:label "3"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0012
+time:F21BDI_0012 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0008 ;
+                 rdfs:label "5"@en .
+
+
+###  http://www.w3.org/2006/time#F21BDI_0014
+time:F21BDI_0014 rdf:type owl:NamedIndividual ,
+                          time:F21BDC_0008 ;
+                 rdfs:label "7"@en .
+
+
+###  http://www.wikidata.org/entity/Q142
+<http://www.wikidata.org/entity/Q142> rdf:type owl:NamedIndividual ,
+                                               :F21BDC_0002 ;
+                                      :F21BDOP_0002 <http://www.wikidata.org/entity/Q1479> ,
+                                                    <http://www.wikidata.org/entity/Q621> ,
+                                                    <http://www.wikidata.org/entity/Q90> ;
+                                      :F21BDOP_0005 <http://www.wikidata.org/entity/Q90> ;
+                                      rdfs:label "France"@en .
+
+
+###  http://www.wikidata.org/entity/Q1479
+<http://www.wikidata.org/entity/Q1479> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0005 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q142> ;
+                                       :F21BDOP_0008 :F20BDI_0006 ;
+                                       rdfs:label "Bordeaux"@en .
+
+
+###  http://www.wikidata.org/entity/Q1519
+<http://www.wikidata.org/entity/Q1519> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0004 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q878> ;
+                                       :F21BDOP_0006 <http://www.wikidata.org/entity/Q878> ;
+                                       :F21BDOP_0008 :F20BDI_0009 ;
+                                       rdfs:label "Abu Dhabi"@en .
+
+
+###  http://www.wikidata.org/entity/Q2126436
+<http://www.wikidata.org/entity/Q2126436> rdf:type owl:NamedIndividual ,
+                                                   :F21BDC_0005 ;
+                                          :F21BDOP_0001 <http://www.wikidata.org/entity/Q878> ;
+                                          :F21BDOP_0008 :F20BDI_0009 ;
+                                          rdfs:label "Ras Al-Khaima"@en .
+
+
+###  http://www.wikidata.org/entity/Q2807
+<http://www.wikidata.org/entity/Q2807> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0004 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q29> ;
+                                       :F21BDOP_0006 <http://www.wikidata.org/entity/Q29> ;
+                                       :F21BDOP_0008 :F20BDI_0005 ;
+                                       rdfs:label "Madrid"@en .
+
+
+###  http://www.wikidata.org/entity/Q289693
+<http://www.wikidata.org/entity/Q289693> rdf:type owl:NamedIndividual ,
+                                                  :F21BDC_0005 ;
+                                         :F21BDOP_0001 <http://www.wikidata.org/entity/Q878> ;
+                                         :F21BDOP_0008 :F20BDI_0009 ;
+                                         rdfs:label "Sharjah"@en .
+
+
+###  http://www.wikidata.org/entity/Q29
+<http://www.wikidata.org/entity/Q29> rdf:type owl:NamedIndividual ,
+                                              :F21BDC_0002 ;
+                                     :F21BDOP_0002 <http://www.wikidata.org/entity/Q2807> ,
+                                                   <http://www.wikidata.org/entity/Q8717> ,
+                                                   <http://www.wikidata.org/entity/Q8810> ,
+                                                   <http://www.wikidata.org/entity/Q8826> ;
+                                     :F21BDOP_0005 <http://www.wikidata.org/entity/Q2807> ;
+                                     rdfs:label "Spain"@en .
+
+
+###  http://www.wikidata.org/entity/Q4045
+<http://www.wikidata.org/entity/Q4045> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0005 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q878> ;
+                                       :F21BDOP_0008 :F20BDI_0009 ;
+                                       rdfs:label "Fujairah"@en .
+
+
+###  http://www.wikidata.org/entity/Q612
+<http://www.wikidata.org/entity/Q612> rdf:type owl:NamedIndividual ,
+                                               :F21BDC_0005 ;
+                                      :F21BDOP_0001 <http://www.wikidata.org/entity/Q878> ;
+                                      :F21BDOP_0008 :F20BDI_0009 ;
+                                      rdfs:label "Dubai"@en .
+
+
+###  http://www.wikidata.org/entity/Q621
+<http://www.wikidata.org/entity/Q621> rdf:type owl:NamedIndividual ,
+                                               :F21BDC_0005 ;
+                                      :F21BDOP_0001 <http://www.wikidata.org/entity/Q142> ;
+                                      :F21BDOP_0008 :F20BDI_0006 ;
+                                      rdfs:label "Versailles"@en .
+
+
+###  http://www.wikidata.org/entity/Q8717
+<http://www.wikidata.org/entity/Q8717> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0005 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q29> ;
+                                       :F21BDOP_0008 :F20BDI_0005 ;
+                                       rdfs:label "Seville"@en .
+
+
+###  http://www.wikidata.org/entity/Q878
+<http://www.wikidata.org/entity/Q878> rdf:type owl:NamedIndividual ,
+                                               :F21BDC_0002 ;
+                                      :F21BDOP_0002 <http://www.wikidata.org/entity/Q1519> ,
+                                                    <http://www.wikidata.org/entity/Q2126436> ,
+                                                    <http://www.wikidata.org/entity/Q289693> ,
+                                                    <http://www.wikidata.org/entity/Q4045> ,
+                                                    <http://www.wikidata.org/entity/Q612> ;
+                                      :F21BDOP_0005 <http://www.wikidata.org/entity/Q1519> ;
+                                      rdfs:label "UAE"@en .
+
+
+###  http://www.wikidata.org/entity/Q8810
+<http://www.wikidata.org/entity/Q8810> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0005 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q29> ;
+                                       :F21BDOP_0008 :F20BDI_0005 ;
+                                       rdfs:label "Granada"@en .
+
+
+###  http://www.wikidata.org/entity/Q8826
+<http://www.wikidata.org/entity/Q8826> rdf:type owl:NamedIndividual ,
+                                                :F21BDC_0005 ;
+                                       :F21BDOP_0001 <http://www.wikidata.org/entity/Q29> ;
+                                       :F21BDOP_0008 :F20BDI_0005 ;
+                                       rdfs:label "Palma"@en .
+
+
+###  http://www.wikidata.org/entity/Q90
+<http://www.wikidata.org/entity/Q90> rdf:type owl:NamedIndividual ,
+                                              :F21BDC_0004 ;
+                                     :F21BDOP_0001 <http://www.wikidata.org/entity/Q142> ;
+                                     :F21BDOP_0006 <http://www.wikidata.org/entity/Q142> ;
+                                     :F21BDOP_0008 :F20BDI_0006 ;
+                                     rdfs:label "Paris"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
